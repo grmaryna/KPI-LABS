@@ -3,7 +3,6 @@
 #include <QLabel>
 #include <QMainWindow>
 #include <QMenuBar>
-
 #include "module1.h"
 #include "module1b.h"
 #include "module2.h"
