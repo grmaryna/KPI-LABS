@@ -60,7 +60,7 @@ void MyEditor::OnPaint(QPainter& painter) const {
 
     if (rubber_ != nullptr) {
         painter.save();
-        painter.setPen(QPen(Qt::black, 1, Qt::DashLine));  // «гумовий» слід
+        painter.setPen(QPen(Qt::black, 1, Qt::DashLine));
         painter.setBrush(Qt::NoBrush);
         rubber_->Trace(painter);
         painter.restore();

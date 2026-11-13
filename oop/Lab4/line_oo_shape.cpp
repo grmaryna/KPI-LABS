@@ -3,7 +3,7 @@
 #include "shape_parts.h"
 
 void LineOOShape::Show(QPainter& painter) const {
-    LineShape::Show(painter);  // сама лінія (координати (x1,y1)-(x2,y2))
+    LineShape::Show(painter);
     ShowPart<EllipseShape>(*this, painter,
                            x1_ - kRadius, y1_ - kRadius,
                            x1_ + kRadius, y1_ + kRadius);

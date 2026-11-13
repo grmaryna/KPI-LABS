@@ -5,8 +5,6 @@
 void LineShape::Show(QPainter& painter) const {
     painter.save();
     painter.setPen(QPen(Qt::black, 1, Qt::SolidLine));
-    // Кваліфікований виклик: малюється саме лінія, навіть якщо Show викликано
-    // для складеної фігури, яка перевизначила Trace.
     LineShape::Trace(painter);
     painter.restore();
 }

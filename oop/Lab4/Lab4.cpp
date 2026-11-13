@@ -16,7 +16,7 @@ namespace {
 
 class MainWindow : public QMainWindow {
 public:
-    MainWindow() : editor_(new MyEditor) {  // динамічне створення MyEditor
+    MainWindow() : editor_(new MyEditor) {
         resize(800, 600);
 
         canvas_ = new Canvas(editor_, this);
@@ -45,8 +45,8 @@ public:
     }
 
     ~MainWindow() override {
-        canvas_->SetEditor(nullptr);  // полотно більше не звертається до редактора
-        delete editor_;               // знищення динамічного MyEditor (і всіх фігур)
+        canvas_->SetEditor(nullptr);
+        delete editor_;
         editor_ = nullptr;
     }
 
@@ -63,8 +63,8 @@ private:
         act->setToolTip(QString::fromUtf8(info.tooltip));
         act->setIconVisibleInMenu(false);
         group_->addAction(act);
-        objectsMenu_->addAction(act);  // той самий QAction і в меню,
-        toolBar_->addAction(act);      // і на Toolbar — вони завжди узгоджені
+        objectsMenu_->addAction(act);
+        toolBar_->addAction(act);
         connect(act, &QAction::triggered, this, [this, kind] { OnSelectShape(kind); });
         return act;
     }
@@ -96,7 +96,7 @@ private:
     std::vector<QAction*> actions_;
 };
 
-}  // namespace
+}
 
 int main(int argc, char* argv[]) {
     QApplication app(argc, argv);

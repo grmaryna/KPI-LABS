@@ -27,7 +27,7 @@ const ShapeInfo kShapes[] = {
     {"Каркас куба", "Каркас куба", &Make<CubeShape>, {4, 5, 28, 29}},
 };
 
-}  // namespace
+}
 
 int ShapeKindCount() {
     return static_cast<int>(sizeof(kShapes) / sizeof(kShapes[0]));

@@ -2,10 +2,6 @@
 
 class QPainter;
 
-// Абстрактний базовий клас усіх фігур.
-// Фігури, які беруть участь у множинному успадкуванні (LineShape, RectShape,
-// EllipseShape), успадковують Shape ВІРТУАЛЬНО, тому в складених фігурах
-// (лінія з кружечками, каркас куба) існує лише один підоб'єкт Shape.
 class Shape {
 public:
     Shape() = default;
@@ -15,8 +11,8 @@ public:
 
     void Set(int x1, int y1, int x2, int y2);
 
-    virtual void Show(QPainter& painter) const = 0;   // остаточне зображення
-    virtual void Trace(QPainter& painter) const = 0;  // «гумовий» слід
+    virtual void Show(QPainter& painter) const = 0;
+    virtual void Trace(QPainter& painter) const = 0;
 
 protected:
     int x1_ = 0;

@@ -6,19 +6,18 @@
 #include "shape_parts.h"
 
 namespace {
-// RectShape задається «від центру до кута», тому передаємо центр і кут.
 template <class Op>
 void ForRect(int x, int y, int w, int h, Op op) {
     op(x + w / 2, y + h / 2, x + w, y + h);
 }
-}  // namespace
+}
 
 CubeShape::Faces CubeShape::Layout() const {
     const int l = std::min(x1_, x2_);
     const int r = std::max(x1_, x2_);
     const int t = std::min(y1_, y2_);
     const int b = std::max(y1_, y2_);
-    const int depth = std::min(r - l, b - t) / 3;  // зсув задньої грані
+    const int depth = std::min(r - l, b - t) / 3;
 
     Faces f;
     f.w = ((r - l) - depth) / 2 * 2;
@@ -34,18 +33,17 @@ void CubeShape::Show(QPainter& painter) const {
     const Faces f = Layout();
     const auto wire = [](RectShape& rect) { rect.SetFilled(false); };
 
-    // Задня грань
     ForRect(f.bx, f.by, f.w, f.h, [&](int cx, int cy, int px, int py) {
         ShowPart<RectShape>(*this, painter, cx, cy, px, py, wire);
     });
-    // Чотири ребра між відповідними кутами граней
+
     for (int i = 0; i < 4; ++i) {
         const int dx = (i % 2) * f.w;
         const int dy = (i / 2) * f.h;
         ShowPart<LineShape>(*this, painter,
                             f.fx + dx, f.fy + dy, f.bx + dx, f.by + dy);
     }
-    // Передня грань
+
     ForRect(f.fx, f.fy, f.w, f.h, [&](int cx, int cy, int px, int py) {
         ShowPart<RectShape>(*this, painter, cx, cy, px, py, wire);
     });
