@@ -8,6 +8,8 @@ SELECT
     MIN(OrderPrice) AS Cheapest_Order
 FROM public.order;
 
+-- Запит 1.2: розподіл транзакцій за способами оплати
+
 SELECT 
     PaymentMethod,
     COUNT(*) AS number_of_transactions,
@@ -15,12 +17,16 @@ SELECT
 FROM Payment
 GROUP BY PaymentMethod;
 
+-- Запит 1.3: активність та витрати кожного клієнта
+
 SELECT 
     CustomerID,
     COUNT(OrderID) AS Number_of_Orders,
     SUM(OrderPrice) AS Total_Spent
 FROM public.order
 GROUP BY CustomerID;
+
+-- Запит 1.4: пошук постійних клієнтів
 
 SELECT 
     CustomerID,
