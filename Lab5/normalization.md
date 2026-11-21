@@ -11,11 +11,11 @@
 
 ## Перехід до 1НФ
 
+### Проблема 01: `CustomerName` за вимогами має містити прізвище та імʼя, а це не відповідає критерію атомарності атрибутів.
+
 **Попередня таблиця:** 
 
-![customer-table](img/customer-table-old.png)
-
-**Проблема:** `CustomerName` за вимогами має містити прізвище та імʼя, а це не відповідає критерію атомарності атрибутів.
+![customer table](img/customer-table-old.png)
 
 **Кроки змін:**
 
@@ -23,22 +23,46 @@
 
 ![rename customer name](img/rename-customer-name.png)
 
-![result of rename customer name](img/result-rename-customer-name.png)
+![result rename customer name](img/result-rename-customer-name.png)
 
 2. Додали `CustomerLastName`
 
 ![add customer last name](img/add-customer-last-name.png)
 
-![result of adding customer last name](img/res-add-customer-last-name.png)
+![result add customer last name](img/res-add-customer-last-name.png)
 
 3. Додали прізвища всім наявним клієнтам в базі
 
 ![add last name](img/add-last-name.png)
 
-![result of adding last name](img/res-add-last-name.png)
+![result add last name](img/res-add-last-name.png)
 
 4. Задали обмеження для атрибуту `CustomerLastName` - `not null`
 
 ![set last name not null](img/lastname-not-null.png)
 
-**Проблема 02:** `OrderDeliveryPlace` за вимогами має містити країну та поштовий індекс, а це не відповідає критерію атомарності атрибутів.
+### Проблема 02: `OrderDeliveryPlace` за вимогами має містити країну та поштовий індекс, а це не відповідає критерію атомарності атрибутів.
+
+**Попередня таблиця:** 
+
+![order table](img/old-order.png)
+
+**Кроки змін:**
+
+1. Додали `PastCode`
+
+![add post code](img/add-post-code.png)
+
+![result add post code](img/result-add-post-code.png)
+
+2. Додали `PastCode` всім наявним клієнтам в базі
+
+![add post code](img/post-code.png)
+
+![result add post code](img/res-add-post-code.png)
+
+2. `OrderDeliveryPlace` за логікою стало країною доставки, тоу оновили дані
+
+![Order Delivery Place](img/order-place.png)
+
+![Result Order Delivery Place](img/res-order-place.png)
