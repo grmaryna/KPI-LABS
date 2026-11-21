@@ -15,14 +15,6 @@
 
 ![customer-table](img/customer-table-old.png)
 
-| № | Customer| 
-|---|---|
-| 1 | CustomerID |
-| 2 | CustomerName |
-| 3 | CustomerPhone |
-| 4 | CustomerEmail |
-| 5 | CustomerPassword |
-
 **Проблема:** `CustomerName` за вимогами має містити прізвище та імʼя, а це не відповідає критерію атомарності атрибутів.
 
 **Кроки змін:**
@@ -32,7 +24,6 @@
 ![rename customer name](img/rename-customer-name.png)
 
 ![result of rename customer name](img/result-rename-customer-name.png)
-
 
 2. Додали `CustomerLastName`
 
@@ -50,37 +41,4 @@
 
 ![set last name not null](img/lastname-not-null.png)
 
-**Таблиця після змін:**
-
-| № | Customer| 
-|---|---|
-| 1 | CustomerID |
-| 2 | CustomerName |
-| 3 | CustomerLastName |
-| 4 | CustomerPhone |
-| 5 | CustomerEmail |
-| 6 | CustomerPassword |
-
-**Попередня таблиця:**
-
-| № | Order | 
-|---|---|
-| 1 | OrderID |
-| 2 | CustomerID |
-| 3 | OrderDeliveryPlace |
-| 4 | OrderPrice |
-
-**Проблема:** `OrderDeliveryPlace` за вимогами має містити країну та поштовий індекс, а це не відповідає критерію атомарності атрибутів.
-
-**Зміна:** додаєм атрибут `PostCode`, який міститиме поштовий індес, а `OrderDeliveryPlace` міститиме країну доставки.
-
-**Таблиця після змін:**
-
-| № | Order | 
-|---|---|
-| 1 | OrderID |
-| 2 | CustomerID |
-| 3 | OrderDeliveryPlace |
-| 4 | OrderPrice |
-| 5 | PostCode |
-
+**Проблема 02:** `OrderDeliveryPlace` за вимогами має містити країну та поштовий індекс, а це не відповідає критерію атомарності атрибутів.
